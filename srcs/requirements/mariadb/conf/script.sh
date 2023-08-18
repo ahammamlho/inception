@@ -3,10 +3,10 @@
 service mysql start 
 sleep 10
 
-echo "CREATE DATABASE IF NOT EXISTS $DB_NAME;" > db_inc.sql
-echo "CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS';" >> db_inc.sql
-echo "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';" >> db_inc.sql
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY $MARIADB_ROOT_PASSWORD;" >> db_inc.sql
+echo "CREATE DATABASE IF NOT EXISTS $MARIADB_NAME;" > db_inc.sql
+echo "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIADB_PASSWORD';" >> db_inc.sql
+echo "GRANT ALL PRIVILEGES ON $MARIADB_NAME.* TO '$MARIADB_USER'@'%';" >> db_inc.sql
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MARIADB_ROOT_PASSWORD';" >> db_inc.sql
 
 echo "FLUSH PRIVILEGES;" >> db_inc.sql
 

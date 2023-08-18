@@ -13,20 +13,22 @@ services:
       - incp_network
     volumes:
       - wdp_data:/var/www/html
-    # restart: always
-    # mariadb:
-    #   build: ./requirements/mariadb/
-    #   container_name: mariadb
-    #   image: mariadb
-    #   ports:
-    #     - 3306:3306
-    #   env_file:
-    #     - .env
-    #   networks:
-    #     - incp_network
-    #   volumes:
-    #     - db_data:/var/lib/mysql
-    #   # restart: always
+    depends_on:
+      - wordpress
+    restart: always
+  mariadb:
+    build: ./requirements/mariadb/
+    container_name: mariadb
+    image: mariadb
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+    networks:
+      - incp_network
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
 
   wordpress:
     build: ./requirements/wordpress/
@@ -40,7 +42,9 @@ services:
       - incp_network
     volumes:
       - wdp_data:/var/www/html
-    # restart: always
+    depends_on:
+      - mariadb
+    restart: always
 
 networks:
   incp_network:

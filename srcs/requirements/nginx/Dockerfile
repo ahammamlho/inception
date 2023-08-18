@@ -9,7 +9,7 @@ RUN openssl req -x509 -newkey rsa:2048 -nodes \
     -keyout /etc/nginx/ssl/inception_key.key \
     -subj "/C=MA/ST=IDF/L=KHOURIBGA/O=42/OU=42/CN=lahammam.42.fr/UID=lahammam"
 
-# COPY ./conf/nginx.conf /etc/nginx/sites-available/default
+COPY ./conf/nginx.conf /etc/nginx/sites-available/default
 
 EXPOSE 443
 
