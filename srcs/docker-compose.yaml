@@ -52,4 +52,16 @@ networks:
 
 volumes:
   wdp_data:
+    driver: local
+    driver_opts:          
+      o: bind
+      type: none
+      device: /Users/lahammam/data_wp
   db_data:
+    driver: local
+    driver_opts:          
+      o: bind
+      type: none
+      device: /Users/lahammam/data_db 
+    
+    
