@@ -7,11 +7,11 @@ mv wp-cli.phar /usr/local/bin/wp
 
 if [ ! -f "/var/www/html/wp-config.php" ]; then
     mkdir -p /var/www/html
-    rm -rf /var/www/html/*
 
     wp core download  --path="/var/www/html" --allow-root
 
     cd /var/www/html
+
     wp config create --dbname=$MARIADB_NAME --dbuser=$MARIADB_USER --dbpass=$MARIADB_PASSWORD --dbhost=$MARIADB_HOST --path="/var/www/html" --allow-root
 
 
@@ -21,7 +21,9 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
    
 fi
 
-sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
-mkdir -p /run/php
-/usr/sbin/php-fpm7.3 --nodaemonize
+sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 
+
+
+mkdir -p /run/php
+/usr/sbin/php-fpm7.4 --nodaemonize

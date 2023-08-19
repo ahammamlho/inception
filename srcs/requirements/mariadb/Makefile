@@ -1,7 +1,7 @@
 all:
 	docker build -t db .
 run:
-	docker run --env-file ../../.env -dt --name c_db db
+	docker run --env-file ../../.env -t --name c_db db
 exec:
 	docker exec -it c_db bash
 clean:
