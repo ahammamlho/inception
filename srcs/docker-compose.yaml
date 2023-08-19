@@ -56,12 +56,12 @@ volumes:
     driver_opts:          
       o: bind
       type: none
-      device: /Users/lahammam/data_wp
+      device: /Users/lahammam/data/wp
   db_data:
     driver: local
     driver_opts:          
       o: bind
       type: none
-      device: /Users/lahammam/data_db 
+      device: /Users/lahammam/data/db
     
     
