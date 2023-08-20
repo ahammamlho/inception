@@ -20,8 +20,6 @@ services:
     build: ./requirements/mariadb/
     container_name: mariadb
     image: mariadb
-    ports:
-      - 3306:3306
     env_file:
       - .env
     networks:
@@ -34,8 +32,6 @@ services:
     build: ./requirements/wordpress/
     container_name: wordpress
     image: wordpress
-    ports:
-      - 9000:9000
     env_file:
       - .env
     networks:
@@ -56,12 +52,12 @@ volumes:
     driver_opts:          
       o: bind
       type: none
-      device: /Users/lahammam/data/wp
+      device: /home/lahammam/data/wp
   db_data:
     driver: local
     driver_opts:          
       o: bind
       type: none
-      device: /Users/lahammam/data/db
+      device: /home/lahammam/data/db
     
     

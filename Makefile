@@ -1,14 +1,10 @@
 all:
-	mkdir -p /Users/lahammam/data/wp
-	mkdir -p /Users/lahammam/data/db
 	docker-compose -f srcs/docker-compose.yaml build
 	 
 
 build: all
 
 up: 
-	mkdir -p /Users/lahammam/data/wp
-	mkdir -p /Users/lahammam/data/db
 	docker-compose -f srcs/docker-compose.yaml up -d
 
 down: 
